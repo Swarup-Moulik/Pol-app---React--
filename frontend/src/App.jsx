@@ -18,10 +18,11 @@ const App = () => {
   const location = useLocation(); // ✅ Get current path
   const hideNavbarAndFooter = location.pathname === '/login'; // 👈 You can add more routes if needed
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <ToastContainer position="top-center" autoClose={2000} />
       <Toaster />
       <Theme />
+      <main className="flex-1">
       {!hideNavbarAndFooter && <Navbar />} {/* 👈 Conditionally render */}
       <Routes>
         <Route path='/login' element={<Login />} />
@@ -33,6 +34,7 @@ const App = () => {
         <Route path='/poll/:pollID' element={<Poll />} />
         <Route path='/result/:pollID' element={<Result />} />
       </Routes>
+      </main>
       {!hideNavbarAndFooter && <Footer />} {/* 👈 Conditionally render */}
     </div>
   )

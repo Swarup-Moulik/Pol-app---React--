@@ -7,7 +7,7 @@ import { PollContext } from '../context/pollContext';
 const CreatePoll = () => {
   const [participants, setParticipants] = useState(0);
   const [loading, setLoading] = useState(false);
-  const { backendURL, token, author } = useContext(PollContext);
+  const { backendURL, token, author, setRefreshTrigger } = useContext(PollContext);
   const [poll, setPoll] = useState({
     title: '',
     desc: '',
@@ -50,6 +50,7 @@ const CreatePoll = () => {
       })
       setLoading(true);
       const response = await axios.post(backendURL + '/api/poll/add', formData, { headers: { token } });
+      setRefreshTrigger(prev => prev + 1); // ✅ this triggers Home to refetch   
       if (response.data.success) {
         toast.success(response.data.success);
         setPoll({

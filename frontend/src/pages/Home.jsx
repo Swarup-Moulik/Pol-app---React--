@@ -8,7 +8,7 @@ const images = [placeholder2, placeholder2, placeholder2, placeholder2, placehol
 const Home = () => {
   const [current, setCurrent] = useState(0);
   const [showCategories, setShowCategories] = useState(false);
-  const { surveys } = useContext(PollContext);
+  const { surveys, loading, refreshTrigger } = useContext(PollContext);
   const trending2 = surveys.slice(-10).reverse();
   const trending = trending2.filter(
     (survey) => new Date(survey.poll?.dueDate) >= new Date()
@@ -26,8 +26,17 @@ const Home = () => {
     }, 2000);
     return () => clearInterval(interval); // Cleanup
   }, []);
-  return (
-    <div className='flex flex-col md:grid md:grid-cols-[4.5fr_0.5fr]'>
+  // This ensures the component updates when polls are refreshed
+  useEffect(() => {
+    // No need to do anything here; just ensures component reacts to changes
+  }, [refreshTrigger]);
+  return loading ? (
+    <div className="flex flex-col items-center justify-center h-screen gap-4">
+      <div className="w-12 h-12 border-4 border-primary border-t-transparent border-b-transparent rounded-full animate-spin" />
+      <p className="text-primary text-lg font-medium">Loading polls...</p>
+    </div>
+  ) : (
+    <div className='flex flex-col md:grid md:grid-cols-[4.5fr_0.5fr] min-h-screen'>
       <div className='flex flex-col gap-3 m-4'>
         <div className="relative w-full h-[200px] sm:h-[300px] overflow-hidden rounded-xl">
           {/* Slider Track */}
@@ -138,7 +147,7 @@ const Home = () => {
             )
           })
             :
-            <div className='text-primary/60 text-lg font-semibold flex justify-center'>Loading ...</div>}
+            <div className='text-primary/60 text-lg font-semibold flex justify-center'>No Polls Running</div>}
         </div>
       </div>
       {/* 📱 Sliding Category Menu */}
@@ -150,7 +159,7 @@ const Home = () => {
         onClick={() => setShowCategories(false)}
       />
       {/* Sliding Panel */}
-      <div className={`fixed top-0 right-0 h-full w-[70%] bg-card shadow-lg z-50 transform transition-all duration-500 ease-in-out md:hidden flex flex-col p-6 gap-4 
+      <div className={`fixed top-0 right-0 w-[70%] bg-card shadow-lg z-50 transform transition-all duration-500 ease-in-out md:hidden flex flex-col p-6 gap-4 sm:min-h-screen
                 ${showCategories ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}
       >
         <div className="flex justify-between items-center mb-4">
