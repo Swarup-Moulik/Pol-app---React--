@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { PollContext } from '../context/pollContext';
 import { Link } from 'react-router-dom';
 import { TrendingUp, Users, Zap } from 'lucide-react';
-import milk from './milk.jpg';
+import placeholder from './placeholder.png';
 
 const Result = () => {
     const { pollID } = useParams();
@@ -33,7 +33,7 @@ const Result = () => {
     }, [pollID, surveys])
     return pollData.poll ? (
         <div className='grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-2 mb-5'>
-            <div className='md:py-5 py-2 my-10 sm:ml-25 sm:px-15 px-8 m-5 rounded-xl bg-card border-2 border-border w-fit sm:w-6/7'>
+            <div className='md:py-5 py-2 my-10 sm:ml-25 sm:px-15 px-6 m-5 rounded-xl bg-card border-2 border-border w-fit sm:w-6/7'>
                 <div className='flex justify-between'>
                     <p className="font-bold my-3 px-3 py-1 bg-foreground rounded-2xl">{pollData?.poll?.category || 'Category'}</p>
                     <div className="text-md font-semibold my-2 flex gap-2 items-center text-primary/60">
@@ -51,10 +51,10 @@ const Result = () => {
                     {list.map((p, index) => {
                         const percent = totalVotes > 0 ? ((p?.count || 0) / totalVotes * 100).toFixed(2) : '0.00';
                         return (
-                            <div className="flex items-center gap-4 py-3 px-5 rounded-lg border bg-foreground/30 border-border my-10 w-sm sm:w-full" key={index}>
+                            <div className="flex items-center gap-4 py-3 px-5 rounded-lg border bg-foreground/30 border-border my-10 w-xs sm:w-full" key={index}>
                                 <div>
                                     <img
-                                        src={p.image || milk}
+                                        src={p.image || placeholder}
                                         alt={p.name}
                                         className="w-15 h-13 rounded-full object-cover border"
                                     />
@@ -82,7 +82,7 @@ const Result = () => {
                 </div>
             </div>
             <div className='flex items-center flex-col'>
-                <div className='border-1 border-border flex flex-col w-md gap-2 rounded-xl mt-10 sm:mr-15 mx-10 bg-card pb-2'>
+                <div className='border-1 border-border flex flex-col w-sm gap-2 rounded-xl mt-10 sm:mr-15 mx-10 bg-card pb-2'>
                     <div className='flex mx-7 mt-5 items-center gap-2'>
                         <div><TrendingUp size={30} color='#50C878' /></div>
                         <h2 className='text-2xl font-bold'>Trending Poll</h2>
@@ -105,7 +105,7 @@ const Result = () => {
                         ))}
                     </div>
                 </div>
-                <div className='border-1 border-border flex flex-col w-md gap-2 rounded-xl mt-10 sm:mr-15 mx-10 bg-card pb-2'>
+                <div className='border-1 border-border flex flex-col w-sm gap-2 rounded-xl mt-10 sm:mr-15 mx-10 bg-card pb-2'>
                     <div className='flex mx-7 my-5 items-center gap-2'>
                         <div><Zap size={30} color='turquoise' /></div>
                         <h2 className='text-2xl font-bold'>Latest Poll</h2>

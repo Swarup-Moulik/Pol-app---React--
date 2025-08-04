@@ -2,11 +2,9 @@ import { ChefHat, ChevronLeft, ChevronRight, Code, Film, Menu, Music, Users, Vol
 import React, { useState, useEffect, useContext } from 'react'
 import { PollContext } from "../context/pollContext";
 import { Link } from 'react-router-dom'
-import milk from './milk.jpg';
-import mutton from './mutton.jpg';
-import paneer from './paneer.jpg';
+import placeholder2 from './placeholder2.png';
 
-const images = [milk, mutton, paneer];
+const images = [placeholder2, placeholder2, placeholder2, placeholder2, placeholder2]; // Replace with actual image URLs
 const Home = () => {
   const [current, setCurrent] = useState(0);
   const [showCategories, setShowCategories] = useState(false);
