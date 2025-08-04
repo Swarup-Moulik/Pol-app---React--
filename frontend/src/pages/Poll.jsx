@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { PollContext } from '../context/pollContext';
-import { toast } from 'react-toastify';
+import { useToast } from '@/hooks/use-toast';
 import placeholder from './placeholder.png';
 import axios from 'axios';
 import { TrendingUp, Users, Zap } from 'lucide-react';
@@ -11,6 +11,7 @@ const Poll = () => {
   const { surveys, backendURL, token, author } = useContext(PollContext);
   const [pollData, setPollData] = useState({});
   const [voted, setVoted] = useState(false);
+  const { toast } = useToast();
   const [selectedIndex, setSelectedIndex] = useState(null);
   const fetchPollData = async (params) => {
     const matchedPoll = surveys.find(survey => survey._id === pollID);
@@ -29,7 +30,11 @@ const Poll = () => {
   );
   const handleVote = async () => {
     if (selectedIndex === null) {
-      toast.warn("Please select an option first");
+      toast({
+          title: "Select an option first",
+          description: response.data.message,
+          variant: "destructive"
+        });
       return;
     }
 
@@ -46,13 +51,24 @@ const Poll = () => {
         }
       );
       if (response.data.success) {
-        toast.success("Vote submitted successfully!");
+        toast({
+          title: "Vote submitted successfully! 🎉",
+          description: "Your vote has been successfully casted.",
+        });
         setVoted(true);
       } else {
-        toast.error(response.data.message);
+        toast({
+          title: "Vote Not Casted",
+          description: response.data.message,
+          variant: "destructive"
+        });
       }
     } catch (err) {
-      toast.error(err.response?.data?.message || err.message);
+      toast({
+        title: "Error",
+        description: error.message,
+        variant: "destructive"
+      });
     }
   };
   useEffect(() => {

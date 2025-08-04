@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { PollContext } from '../context/pollContext';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { useToast } from '@/hooks/use-toast';
 import { Mail, User, Lock } from 'lucide-react';
 
 const Login = () => {
@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [login, setLogin] = useState(true);
   const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
   const { backendURL, navigate, setToken, setAuthor } = useContext(PollContext);
   const toggleLogin = () => {
     setLogin(prev => !prev);
@@ -27,11 +28,19 @@ const Login = () => {
           localStorage.setItem('token', response.data.token);
           navigate('/');
         } else {
-          toast.error(response.data.message);
+          toast({
+            title: "Login Failed",
+            description: response.data.message,
+            variant: "destructive"
+          });
         }
       } catch (error) {
         console.log(error);
-        toast.error(error.message);
+        toast({
+          title: "Error",
+          description: error.message,
+          variant: "destructive"
+        });
       } finally {
         setLoading(false);
       }
@@ -45,11 +54,19 @@ const Login = () => {
           localStorage.setItem('token', response.data.token);
           navigate('/');
         } else {
-          toast.error(response.data.message);
+          toast({
+            title: "Registration Failed",
+            description: response.data.message,
+            variant: "destructive"
+          });
         }
       } catch (error) {
         console.log(error);
-        toast.error(error.message);
+        toast({
+          title: "Error",
+          description: error.message,
+          variant: "destructive"
+        });
       } finally {
         setLoading(false);
       }
@@ -74,14 +91,14 @@ const Login = () => {
               {!login && (
                 <div className='flex flex-col gap-2 w-full items-start'>
                   <div className='flex items-center gap-1'>
-                    <User size={19}/>
+                    <User size={19} />
                     <label htmlFor='name' className='text-md font-semibold'>Your Name</label>
-                  </div>       
+                  </div>
                   <input
                     type="text"
                     name='name'
                     id='name'
-                    onChange={(e)=>setName(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
                     className='bg-background w-full rounded-md p-2'
                     placeholder='John Doe'
                   />
@@ -91,7 +108,7 @@ const Login = () => {
                 <div className='flex items-center gap-1'>
                   <Mail size={19} />
                   <label htmlFor='email' className='text-md font-semibold'>Your Email</label>
-                </div>             
+                </div>
                 <input
                   type="email"
                   name='email'
@@ -105,7 +122,7 @@ const Login = () => {
                 <div className='flex items-center gap-1'>
                   <Lock size={19} />
                   <label htmlFor='email' className='text-md font-semibold'>Your Password</label>
-                </div>   
+                </div>
                 <input
                   type="password"
                   name='password'
@@ -117,12 +134,12 @@ const Login = () => {
               </div>
               <div className='flex justify-center text-sm text-primary/60 cursor-pointer text-center'>
                 <span onClick={toggleLogin}>
-                  {login ? 'Create Account' : <span>Already have an account? <span className='font-semibold text-primary-foreground'>Log In</span> </span> }
+                  {login ? 'Create Account' : <span>Already have an account? <span className='font-semibold text-primary-foreground'>Log In</span> </span>}
                 </span>
               </div>
               <div className='flex justify-center m-4  w-full'>
                 <button type="submit" className='vote-button w-[50%]' disabled={loading}>
-                  {loading ? 'Logging...' : login ? 'Log-In' : 'Sign Up'}       
+                  {loading ? 'Logging...' : login ? 'Log-In' : 'Sign Up'}
                 </button>
               </div>
             </form>

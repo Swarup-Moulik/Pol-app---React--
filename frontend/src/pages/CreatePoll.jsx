@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Calendar, Minus, Plus, Tag, UploadCloudIcon, Users } from 'lucide-react';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 import { PollContext } from '../context/pollContext';
+import { useToast } from '@/hooks/use-toast';
 
 const CreatePoll = () => {
   const [participants, setParticipants] = useState(0);
   const [loading, setLoading] = useState(false);
   const { backendURL, token, author, setRefreshTrigger } = useContext(PollContext);
+  const { toast } = useToast();
   const [poll, setPoll] = useState({
     title: '',
     desc: '',
@@ -52,7 +53,10 @@ const CreatePoll = () => {
       const response = await axios.post(backendURL + '/api/poll/add', formData, { headers: { token } });
       setRefreshTrigger(prev => prev + 1); // ✅ this triggers Home to refetch   
       if (response.data.success) {
-        toast.success(response.data.success);
+        toast({
+          title: "Poll Created 🎉",
+          description: "Your poll has been successfully created.",
+        });
         setPoll({
           title: '',
           desc: '',
@@ -62,11 +66,19 @@ const CreatePoll = () => {
         })
         setParticipants(0);
       } else {
-        toast.error(response.data.message);
+        toast({
+          title: "Creation Failed",
+          description: response.data.message,
+          variant: "destructive"
+        });
       }
     } catch (error) {
       console.log(error);
-      toast.error(error.message);
+      toast({
+        title: "Error",
+        description: error.message,
+        variant: "destructive"
+      });
     } finally {
       setLoading(false);
     }

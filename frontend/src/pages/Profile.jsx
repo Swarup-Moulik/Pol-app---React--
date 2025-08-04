@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { PollContext } from '../context/pollContext'
 import { X, Users } from 'lucide-react';
-import { toast } from 'react-toastify';
 import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { useToast } from '@/hooks/use-toast';
 
 const Profile = () => {
   const { backendURL, surveys, token, author, getPolls, navigate } = useContext(PollContext);
@@ -11,6 +11,7 @@ const Profile = () => {
   const myPolls2 = surveys.filter((survey) => survey.author === author);
   const myPolls = myPolls2.reverse();
   const currentDate = new Date();
+  const { toast } = useToast();
   const myPollsFiltered = myPolls.filter((survey) => {
     const dueDate = new Date(survey.poll?.dueDate);
     if (selectedTab === 'active') {
@@ -27,14 +28,25 @@ const Profile = () => {
     try {
       const response = await axios.delete(`${backendURL}/api/poll/delete/${id}`, { headers: { token } })
       if (response.data.success) {
-        toast.success("Poll Removed")
+        toast({
+          title: "Poll Deleted 🎉",
+          description: "Your poll has been successfully removed.",
+        });
         await getPolls(author);
       } else {
-        toast.error(response.message);
+        toast({
+          title: "Deletion Failed",
+          description: response.data.message,
+          variant: "destructive"
+        });
       }
     } catch (error) {
       console.log(error);
-      toast.error(error.message);
+      toast({
+        title: "Error",
+        description: error.message,
+        variant: "destructive"
+      });
     }
   }
   useEffect(() => {
@@ -70,7 +82,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div className='flex flex-row gap-5 my-5'>
+        <div className='flex sm:flex-row flex-col gap-5 my-5'>
           {myPollsFiltered.length === 0 ? (
             <p className="text-center text-muted-foreground">No current polls available.</p>
           ) : (
