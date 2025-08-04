@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import milk from './milk.jpg';
 import { PollContext } from '../context/pollContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
