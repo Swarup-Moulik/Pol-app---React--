@@ -25,7 +25,7 @@
     --background: 210 40% 98%; /* Clean white background */
     --foreground: 210 40% 98%; /* Dark text for contrast */
     --primary: 222 47% 11%; /* Modern blue */
-    --primary-foreground: 250 47% 60%;/* Light text on primary */
+    --primary-foreground: 250 47% 60%; /* Light text on primary */
   }
 
   .dark {
@@ -45,6 +45,8 @@
   body {
     @apply bg-background text-primary transition-colors duration-300;
     font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 }
 
