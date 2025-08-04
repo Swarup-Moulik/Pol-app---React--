@@ -83,7 +83,7 @@ const Home = () => {
           </button>
         </div>
         <div className='flex gap-4 overflow-x-auto pb-4 px-6 sm:px-2 flex-col sm:flex-row w-full'>
-          {trending.map((survey, index) => {
+          {trending.length > 0 ? trending.map((survey, index) => {
             const totalVotes = survey.poll.participants?.reduce((sum, part) => sum + (part.count || 0), 0) || 0;
             const arranged = [...(survey.poll.participants || [])]?.sort((a, b) => (b.count || 0) - (a.count || 0)).slice(0, 4);
             return (
@@ -136,7 +136,9 @@ const Home = () => {
                 </div>
               </div>
             )
-          })}
+          })
+            :
+            <div className='text-primary/60 text-lg font-semibold flex justify-center'>Loading ...</div>}
         </div>
       </div>
       {/* 📱 Sliding Category Menu */}
