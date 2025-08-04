@@ -56,7 +56,7 @@ const Home = () => {
           >
             <ChevronRight size={30} />
           </button>
-          <div className="absolute bottom-4 left-1/2 transform-translate-x-1/2 flex gap-2">
+          <div className="absolute bottom-4 left-[37%] sm:left-[45%] transform-translate-x-1/2 flex gap-2">
             {images.map((_, index) => (
               <div
                 key={index}
