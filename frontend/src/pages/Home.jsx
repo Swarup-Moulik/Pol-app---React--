@@ -3,12 +3,14 @@ import React, { useState, useEffect, useContext } from 'react'
 import { PollContext } from "../context/pollContext";
 import { Link } from 'react-router-dom'
 import placeholder2 from './placeholder2.png';
+import { useTranslation } from 'react-i18next';
 
 const images = [placeholder2, placeholder2, placeholder2, placeholder2, placeholder2]; // Replace with actual image URLs
 const Home = () => {
   const [current, setCurrent] = useState(0);
   const [showCategories, setShowCategories] = useState(false);
   const { surveys, loading, refreshTrigger } = useContext(PollContext);
+  const { t } = useTranslation('home');
   const trending2 = surveys.slice(-10).reverse();
   const trending = trending2.filter(
     (survey) => new Date(survey.poll?.dueDate) >= new Date()
@@ -33,7 +35,7 @@ const Home = () => {
   return loading ? (
     <div className="flex flex-col items-center justify-center h-screen gap-4">
       <div className="w-12 h-12 border-4 border-primary border-t-transparent border-b-transparent rounded-full animate-spin" />
-      <p className="text-primary text-lg font-medium">Loading polls...</p>
+      <p className="text-primary text-lg font-medium">{t("loading")}</p>
     </div>
   ) : (
     <div className='flex flex-col md:grid md:grid-cols-[4.5fr_0.5fr] min-h-screen'>
@@ -77,10 +79,10 @@ const Home = () => {
         <div className='flex justify-between items-start'>
           <div className='flex flex-col my-5 mx-3 gap-1 items-start'>
             <div className='font-bold text-2xl sm:text-3xl'>
-              Trending Polls
+              {t("trendingTitle")}
             </div>
             <div className='text-primary/60 text-base sm:text-lg'>
-              Discover what's buzzing among everyone?
+              {t("trendingSubtitle")}
             </div>
           </div>
           {/* 📱 Menu Button on Small Screens */}
@@ -103,7 +105,7 @@ const Home = () => {
                 {/* Poll Text Info */}
                 <div className='flex gap-2 items-center text-sm'>
                   <div className='bg-foreground rounded-full py-1 px-2'>{survey.poll?.category}</div>
-                  <div className='bg-primary-foreground/20 text-primary-foreground rounded-full py-1 px-2'>Live</div>
+                  <div className='bg-primary-foreground/20 text-primary-foreground rounded-full py-1 px-2'>{t("live")}</div>
                 </div>
                 <div className="flex flex-col items-start my-3">
                   <h3 className="text-lg sm:text-2xl font-bold text-primary">
@@ -118,7 +120,7 @@ const Home = () => {
                       <div className='flex flex-col gap-1' key={i}>
                         <div className='flex gap-3 justify-between text-sm'>
                           <div>{part.name}</div>
-                          <div>{totalVotes > 0 ? `${percent}%` : 'No votes yet'}</div>
+                          <div>{totalVotes > 0 ? `${percent}%` : t("noVotes")}</div>
                         </div>
                         <div className='bg-foreground w-full rounded-full h-2 overflow-hidden'>
                           <div
@@ -134,12 +136,12 @@ const Home = () => {
                 <div className="mt-6 flex flex-col gap-2 text-sm font-semibold text-primary/70 items-center w-full">
                   <div className='flex gap-2 items-center'><Users />{totalVotes}</div>
                   <div className='flex flex-col gap-2 text-center'>
-                    <div>By: {survey?.author}</div>
-                    <div>Due: {new Date(survey.poll?.dueDate).toLocaleDateString('en-GB')}</div>
+                    <div>{t("by")}: {survey?.author}</div>
+                    <div>{t("due")}: {new Date(survey.poll?.dueDate).toLocaleDateString('en-GB')}</div>
                   </div>
                   <Link to={`/poll/${survey._id}`}>
                     <button className="vote-button px-3 py-1 rounded-md cursor-pointer text-sm sm:text-lg">
-                      Be you
+                      {t("beYou")}
                     </button>
                   </Link>
                 </div>
@@ -147,7 +149,7 @@ const Home = () => {
             )
           })
             :
-            <div className='text-primary/60 text-lg font-semibold flex justify-center'>No Polls Running</div>}
+            <div className='text-primary/60 text-lg font-semibold flex justify-center'>{t("noPolls")}</div>}
         </div>
       </div>
       {/* 📱 Sliding Category Menu */}
@@ -163,7 +165,7 @@ const Home = () => {
                 ${showCategories ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}
       >
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold text-primary">Categories</h2>
+          <h2 className="text-xl font-bold text-primary">{t("categories")}</h2>
           <button
             className="text-primary-foreground text-lg font-semibold"
             onClick={() => setShowCategories(false)}
@@ -174,45 +176,45 @@ const Home = () => {
         <div className="flex flex-col gap-4 text-primary font-medium text-base">
           <div className='flex items-center gap-2'>
             <ChefHat className='text-orange-400' />
-            <Link to={'/currentpoll'} state={{ category: "Cuisine" }} onClick={() => setShowCategories(false)}>Cuisine</Link>
+            <Link to={'/currentpoll'} state={{ category: "Cuisine" }} onClick={() => setShowCategories(false)}>{t("category.Cuisine")}</Link>
           </div>
           <div className='flex items-center gap-2'>
             <Code className='text-blue-700' />
-            <Link to={'/currentpoll'} state={{ category: "Technology" }} onClick={() => setShowCategories(false)}>Technology</Link>
+            <Link to={'/currentpoll'} state={{ category: "Technology" }} onClick={() => setShowCategories(false)}>{t("category.Technology")}</Link>
           </div>
           <div className='flex items-center gap-2'>
             <Volleyball className='text-green-600' />
-            <Link to={'/currentpoll'} state={{ category: "Sports" }} onClick={() => setShowCategories(false)}>Sports</Link>
+            <Link to={'/currentpoll'} state={{ category: "Sports" }} onClick={() => setShowCategories(false)}>{t("category.Sports")}</Link>
           </div>
           <div className='flex items-center gap-2'>
             <Music className='text-purple-600' />
-            <Link to={'/currentpoll'} state={{ category: "Music" }} onClick={() => setShowCategories(false)}>Music</Link>
+            <Link to={'/currentpoll'} state={{ category: "Music" }} onClick={() => setShowCategories(false)}>{t("category.Music")}</Link>
           </div>
           <div className='flex items-center gap-2'>
             <Film className='text-red-600' />
-            <Link to={'/currentpoll'} state={{ category: "Films" }} onClick={() => setShowCategories(false)}>Films</Link>
+            <Link to={'/currentpoll'} state={{ category: "Films" }} onClick={() => setShowCategories(false)}>{t("category.Films")}</Link>
           </div>
         </div>
       </div>
 
 
       <div className='hidden md:flex flex-col gap-6 p-3 bg-card border-l-3 border-border'>
-        <h2 className='text-primary font-bold text-xl'>Categories</h2>
+        <h2 className='text-primary font-bold text-xl'>{t("categories")}</h2>
         <div className='flex flex-col gap-4 font-medium text-primary px-3'>
           <div className='flex gap-3'>
-            <ChefHat className='text-orange-400' /><Link to={'/currentpoll'} state={{ category: "Cuisine" }}><div className='card-hover'>Cuisine</div></Link>
+            <ChefHat className='text-orange-400' /><Link to={'/currentpoll'} state={{ category: "Cuisine" }}><div className='card-hover'>{t("category.Cuisine")}</div></Link>
           </div>
           <div className='flex gap-3'>
-            <Code className='text-blue-700' /><Link to={'/currentpoll'} state={{ category: "Technology" }}><div className='card-hover'>Technology</div></Link>
+            <Code className='text-blue-700' /><Link to={'/currentpoll'} state={{ category: "Technology" }}><div className='card-hover'>{t("category.Technology")}</div></Link>
           </div>
           <div className='flex gap-3'>
-            <Volleyball className='text-green-600' /><Link to={'/currentpoll'} state={{ category: "Sports" }}><div className='card-hover'>Sports</div></Link>
+            <Volleyball className='text-green-600' /><Link to={'/currentpoll'} state={{ category: "Sports" }}><div className='card-hover'>{t("category.Sports")}</div></Link>
           </div>
           <div className='flex gap-3'>
-            <Music className='text-purple-600' /><Link to={'/currentpoll'} state={{ category: "Music" }}><div className='card-hover'>Music</div></Link>
+            <Music className='text-purple-600' /><Link to={'/currentpoll'} state={{ category: "Music" }}><div className='card-hover'>{t("category.Music")}</div></Link>
           </div>
           <div className='flex gap-3'>
-            <Film className='text-red-600' /><Link to={'/currentpoll'} state={{ category: "Films" }}><div className='card-hover'>Films</div></Link>
+            <Film className='text-red-600' /><Link to={'/currentpoll'} state={{ category: "Films" }}><div className='card-hover'>{t("category.Films")}</div></Link>
           </div>
         </div>
       </div>

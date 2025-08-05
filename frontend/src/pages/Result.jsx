@@ -4,10 +4,12 @@ import { PollContext } from '../context/pollContext';
 import { Link } from 'react-router-dom';
 import { TrendingUp, Users, Zap } from 'lucide-react';
 import placeholder from './placeholder.png';
+import { useTranslation } from 'react-i18next';
 
 const Result = () => {
     const { pollID } = useParams();
     const { surveys } = useContext(PollContext);
+    const { t } = useTranslation("poll");
     const [pollData, setPollData] = useState({});
     const fetchPollData = async (params) => {
         const matchedPoll = surveys.find(survey => survey._id === pollID);
@@ -35,11 +37,11 @@ const Result = () => {
         <div className='grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-2 mb-5'>
             <div className='md:py-5 py-2 my-10 sm:ml-25 sm:px-15 px-6 m-5 rounded-xl bg-card border-2 border-border w-fit sm:w-6/7'>
                 <div className='flex justify-between'>
-                    <p className="font-bold my-3 px-3 py-1 bg-foreground rounded-2xl">{pollData?.poll?.category || 'Category'}</p>
+                    <p className="font-bold my-3 px-3 py-1 bg-foreground rounded-2xl">{pollData?.poll?.category || t("category")}</p>
                     <div className="text-md font-semibold my-2 flex gap-2 items-center text-primary/60">
                         <Users size={20} />{pollData.poll.participants.reduce(
                             (sum, part) => sum + (part.count || 0), 0
-                        ).toLocaleString()} votes
+                        ).toLocaleString()} {t("votes")}
                     </div>
                 </div>
                 <div className='flex flex-col items-start mt-3 mb-15'>
@@ -63,7 +65,7 @@ const Result = () => {
                                     <div htmlFor={`option-${index}`} className="text-md flex justify-between w-full">
                                         <div className='font-semibold'>{p.name}</div>
                                         <div className='text-primary/80'>
-                                            {totalVotes > 0 ? `${percent}%` : 'No votes yet'}
+                                            {totalVotes > 0 ? `${percent}%` : t("no_votes_yet")}
                                         </div>
                                     </div>
                                     <div className='bg-foreground w-full rounded-full h-2 overflow-hidden'>
@@ -78,14 +80,14 @@ const Result = () => {
                     })}
                 </div>
                 <div className='flex justify-center'>
-                    <Link to={'/pastpoll'} className='vote-button mt-5 w-fit cursor-pointer'>Past Polls</Link>
+                    <Link to={'/pastpoll'} className='vote-button mt-5 w-fit cursor-pointer'>{t("past_polls")}</Link>
                 </div>
             </div>
             <div className='flex items-center flex-col'>
                 <div className='border-1 border-border flex flex-col w-sm gap-2 rounded-xl mt-10 sm:mr-15 mx-10 bg-card pb-2'>
                     <div className='flex mx-7 mt-5 items-center gap-2'>
                         <div><TrendingUp size={30} color='#50C878' /></div>
-                        <h2 className='text-2xl font-bold'>Trending Poll</h2>
+                        <h2 className='text-2xl font-bold'>{t("trending_poll")}</h2>
                     </div>
                     <div>
                         {popular.map((poll, index) => (
@@ -97,7 +99,7 @@ const Result = () => {
                                     <div className='flex justify-between items-center mt-2'>
                                         <div className='bg-card rounded-2xl px-2 py-1 font-medium text-xs'>{poll?.poll.category}</div>
                                         <div className='text-primary/60 text-xs'>
-                                            {poll?.poll.participants.reduce((sum, part) => sum + (part.count || 0), 0).toLocaleString()} votes
+                                            {poll?.poll.participants.reduce((sum, part) => sum + (part.count || 0), 0).toLocaleString()} {t("votes")}
                                         </div>
                                     </div>
                                 </Link>
@@ -108,7 +110,7 @@ const Result = () => {
                 <div className='border-1 border-border flex flex-col w-sm gap-2 rounded-xl mt-10 sm:mr-15 mx-10 bg-card pb-2'>
                     <div className='flex mx-7 my-5 items-center gap-2'>
                         <div><Zap size={30} color='turquoise' /></div>
-                        <h2 className='text-2xl font-bold'>Latest Poll</h2>
+                        <h2 className='text-2xl font-bold'>{t("latest_poll")}</h2>
                     </div>
                     <div>
                         {latest.map((poll, index) => (
@@ -120,7 +122,7 @@ const Result = () => {
                                     <div className='flex justify-between items-center mt-3'>
                                         <div className='bg-card rounded-2xl px-2 py-1 font-medium text-xs'>{poll?.poll.category}</div>
                                         <div className='text-primary/60 text-xs'>
-                                            {poll?.poll.participants.reduce((sum, part) => sum + (part.count || 0), 0).toLocaleString()} votes
+                                            {poll?.poll.participants.reduce((sum, part) => sum + (part.count || 0), 0).toLocaleString()} {t("votes")}
                                         </div>
                                     </div>
                                 </Link>

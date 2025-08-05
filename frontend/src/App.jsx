@@ -13,6 +13,8 @@ import CurrentPoll from '@/pages/CurrentPoll';
 import PastPoll from '@/pages/PastPoll';
 import Poll from '@/pages/Poll'
 import Result from './pages/Result';
+import PrivateRoute from './components/PrivateRoute';
+import './i18n';
 
 const App = () => {
   const location = useLocation(); // ✅ Get current path
@@ -23,17 +25,21 @@ const App = () => {
       <Toaster />
       <Theme />
       <main className="flex-1">
-      {!hideNavbarAndFooter && <Navbar />} {/* 👈 Conditionally render */}
-      <Routes>
-        <Route path='/login' element={<Login />} />
-        <Route path='/' element={<Home />} />
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/createpoll' element={<CreatePoll />} />
-        <Route path='/currentpoll' element={<CurrentPoll />} />
-        <Route path='/pastpoll' element={<PastPoll />} />
-        <Route path='/poll/:pollID' element={<Poll />} />
-        <Route path='/result/:pollID' element={<Result />} />
-      </Routes>
+        <Navbar />
+        {/*{!hideNavbarAndFooter && <Navbar />}*/} {/* 👈 Conditionally render */}
+        <Routes>
+          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Home />} />
+          {/* Protected Routes */}
+          <Route element={<PrivateRoute />}>
+            <Route path="/createpoll" element={<CreatePoll />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
+          <Route path='/currentpoll' element={<CurrentPoll />} />
+          <Route path='/pastpoll' element={<PastPoll />} />
+          <Route path='/poll/:pollID' element={<Poll />} />
+          <Route path='/result/:pollID' element={<Result />} />
+        </Routes>
       </main>
       {!hideNavbarAndFooter && <Footer />} {/* 👈 Conditionally render */}
     </div>

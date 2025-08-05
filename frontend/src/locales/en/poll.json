@@ -1,0 +1,17 @@
+{
+  "category": "Category",
+  "votes": "votes",
+  "no_votes_yet": "No votes yet",
+  "select_option_first": "Select an option first",
+  "vote_success_title": "Vote submitted successfully! 🎉",
+  "vote_success_desc": "Your vote has been successfully casted.",
+  "vote_fail_title": "Vote Not Casted",
+  "vote_fail_desc": "There was an error casting your vote.",
+  "error": "Error",
+  "voted": "Voted",
+  "vote": "Vote",
+  "trending_poll": "Trending Poll",
+  "latest_poll": "Latest Poll",
+  "loading": "Loading...",
+  "past_polls": "Past Polls"
+}

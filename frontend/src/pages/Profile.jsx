@@ -4,6 +4,7 @@ import { X, Users } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslation } from 'react-i18next';
 
 const Profile = () => {
   const { backendURL, surveys, token, author, getPolls, navigate } = useContext(PollContext);
@@ -12,6 +13,7 @@ const Profile = () => {
   const myPolls = myPolls2.reverse();
   const currentDate = new Date();
   const { toast } = useToast();
+  const { t } = useTranslation('profile');
   const myPollsFiltered = myPolls.filter((survey) => {
     const dueDate = new Date(survey.poll?.dueDate);
     if (selectedTab === 'active') {
@@ -29,13 +31,13 @@ const Profile = () => {
       const response = await axios.delete(`${backendURL}/api/poll/delete/${id}`, { headers: { token } })
       if (response.data.success) {
         toast({
-          title: "Poll Deleted 🎉",
-          description: "Your poll has been successfully removed.",
+          title: t("poll_deleted"),
+          description: t("poll_deleted_desc"),
         });
         await getPolls(author);
       } else {
         toast({
-          title: "Deletion Failed",
+          title: t("deletion_failed"),
           description: response.data.message,
           variant: "destructive"
         });
@@ -43,7 +45,7 @@ const Profile = () => {
     } catch (error) {
       console.log(error);
       toast({
-        title: "Error",
+        title: t("error"),
         description: error.message,
         variant: "destructive"
       });
@@ -51,40 +53,43 @@ const Profile = () => {
   }
   useEffect(() => {
     if (!token) {
-      toast.warning("Please log in to view your profile");
+      toast({
+        title: "Please log in to view your profile",
+        variant: "destructive"
+      });
       navigate('/login'); // 👈 Change this route to wherever your login page is
     }
   }, [token, navigate]); // 👈 Runs when component mounts or token changes
   return (
     <div>
-      <h1 className='font-bold text-3xl my-5 '>Publisher: {author}</h1>
+      <h1 className='font-bold text-3xl my-5 '>{t("publisher")}: {author}</h1>
       <div className='bg-card flex flex-col p-5 m-5 rounded-xl'>
         <div className='flex flex-row justify-between items-start'>
-          <div className='text-2xl font-bold'>My Polls</div>
+          <div className='text-2xl font-bold'>{t("my_polls")}</div>
           <div className='bg-foreground/50 p-1 rounded-lg flex flex-row justify-evenly gap-4 text-md font-semibold'>
             <div
               className={getTabClass('all')}
               onClick={() => setSelectedTab('all')}
             >
-              All Polls
+              {t("all_polls")}
             </div>
             <div
               className={getTabClass('active')}
               onClick={() => setSelectedTab('active')}
             >
-              Active Polls
+              {t("active_polls")}
             </div>
             <div
               className={getTabClass('past')}
               onClick={() => setSelectedTab('past')}
             >
-              Past Polls
+              {t("past_polls")}
             </div>
           </div>
         </div>
         <div className='flex sm:flex-row flex-col gap-5 my-5'>
           {myPollsFiltered.length === 0 ? (
-            <p className="text-center text-muted-foreground">No current polls available.</p>
+            <p className="text-center text-muted-foreground">{t("no_polls")}</p>
           ) : (
             myPollsFiltered.map((survey, index) => {
               const totalVotes = survey.poll.participants?.reduce((sum, part) => sum + (part.count || 0), 0) || 0;
@@ -102,7 +107,7 @@ const Profile = () => {
                     <div className='flex flex-row gap-1'>
                       <div className='bg-foreground rounded-full py-1 px-2'>{survey.poll?.category}</div>
                       <div className={`rounded-full py-1 px-2 ${isExpired ? 'bg-red-700 text-white' : 'bg-primary-foreground/20 text-primary-foreground'}`}>
-                        {isExpired ? 'Expired' : 'Live'}
+                        {isExpired ? t("expired") : t("live")}
                       </div>
                     </div>
                     <button className='transition-colors duration-300 hover:text-primary cursor-pointer flex justify-center'
@@ -124,7 +129,7 @@ const Profile = () => {
                         <div className='flex flex-col gap-1' key={i}>
                           <div className='flex gap-3 justify-between'>
                             <div>{part.name}</div>
-                            <div>{totalVotes > 0 ? `${percent}%` : 'No votes yet'}</div>
+                            <div>{totalVotes > 0 ? `${percent}%` : t("no_votes")}</div>
                           </div>
                           <div className='bg-foreground w-full rounded-full h-2 overflow-hidden'>
                             <div
@@ -140,24 +145,23 @@ const Profile = () => {
                   <div className="mt-6 flex flex-col gap-2 text-sm font-semibold text-primary/70 items-center w-full">
                     <div className='flex gap-2'><Users />{totalVotes}</div>
                     <div className='flex flex-col gap-2'>
-                      <div>By: {survey?.author}</div>
-                      <div>Due: {new Date(survey.poll?.dueDate).toLocaleDateString('en-GB')}</div>
+                      <div>{t("by")} {survey?.author}</div>
+                      <div>{t("due")}: {new Date(survey.poll?.dueDate).toLocaleDateString('en-GB')}</div>
                     </div>
                     {isExpired ? <>
                       <Link to={`/result/${survey._id}`}>
                         <button className="vote-button px-3 py-1 rounded-md cursor-pointer text-lg">
-                          Result
+                          {t("result")}
                         </button>
                       </Link>
                     </> : <>
                       <Link to={`/poll/${survey._id}`}>
                         <button className="vote-button px-3 py-1 rounded-md cursor-pointer text-lg">
-                          Be you
+                          {t("vote")}
                         </button>
                       </Link>
                     </>
                     }
-
                   </div>
                 </div>
               )

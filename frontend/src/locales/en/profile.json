@@ -1,0 +1,21 @@
+{
+  "publisher": "Publisher",
+  "my_polls": "My Polls",
+  "all_polls": "All Polls",
+  "active_polls": "Active Polls",
+  "past_polls": "Past Polls",
+  "no_polls": "No current polls available.",
+  "category": "Category",
+  "expired": "Expired",
+  "live": "Live",
+  "no_votes": "No votes yet",
+  "by": "By",
+  "due": "Due",
+  "result": "Result",
+  "vote": "Be you",
+  "poll_deleted": "Poll Deleted 🎉",
+  "poll_deleted_desc": "Your poll has been successfully removed.",
+  "deletion_failed": "Deletion Failed",
+  "error": "Error",
+  "login_required": "Please log in to view your profile"
+}

@@ -1,0 +1,20 @@
+{
+  "create_title": "Create Your Poll",
+  "subtitle": "Gather opinions and make decisions together",
+  "poll_details": "Poll Details",
+  "title": "Title",
+  "desc": "Anecdote",
+  "category": "Categories",
+  "due_date": "Due Date",
+  "participants": "Number of Participants :-",
+  "name": "Name",
+  "picture": "Picture",
+  "sports": "Sports",
+  "technology": "Technology",
+  "music": "Music",
+  "film": "Film",
+  "cuisine": "Cuisine",
+  "others": "Others",
+  "launch": "Launch",
+  "launching": "Launching Poll..."
+}

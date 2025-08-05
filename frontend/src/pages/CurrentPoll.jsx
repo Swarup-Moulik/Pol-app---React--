@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, useRef } from 'react';
 import { PollContext } from "../context/pollContext";
 import { Link, useLocation } from 'react-router-dom';
 import { Users, Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const CurrentPoll = ({ cat }) => {
   const [filteredPolls, setFilteredPolls] = useState([]);
@@ -10,6 +11,7 @@ const CurrentPoll = ({ cat }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const { surveys, searchTerm } = useContext(PollContext);
   const location = useLocation();
+  const { t } = useTranslation('polist');
   const defaultCat = location.state?.category || null;
   const focusId = location.state?.focusId;
   const toggleCategory = (e) => {
@@ -68,45 +70,45 @@ const CurrentPoll = ({ cat }) => {
       <div className={`fixed md:static z-20 top-0 left-0 h-full md:h-auto w-[80%] md:w-full bg-card p-4 border-b md:border-b-0 md:border-r border-border transition-transform duration-300 ease-in-out ${showSidebar ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}>
         {/* Close Button (only mobile) */}
         <div className="flex justify-between items-center md:hidden mb-4">
-          <h2 className="text-2xl font-semibold">Filters</h2>
+          <h2 className="text-2xl font-semibold">{t("filters")}</h2>
           <button onClick={() => setShowSidebar(false)} className="text-primary">
             <X />
           </button>
         </div>
         <div className='flex flex-col gap-3 items-center justify-start'>
-          <label className="font-medium text-lg">Sort by:</label>
+          <label className="font-medium text-lg">{t("sort_by")}</label>
           <select
             className="p-1 w-full border rounded-md bg-gray-200 text-black"
             value={sortType}
             onChange={(e) => setSortType(e.target.value)}
           >
-            <option value="relevant">Relevant</option>
-            <option value="latest">Latest</option>
-            <option value="oldest">Oldest</option>
+            <option value="relevant">{t("relevant")}</option>
+            <option value="latest">{t("latest")}</option>
+            <option value="oldest">{t("oldest")}</option>
           </select>
         </div>
-        <h2 className="text-lg font-semibold mt-6">Categories</h2>
+        <h2 className="text-lg font-semibold mt-6">{t("categories")}</h2>
         <div className="flex flex-col gap-2 mt-3 text-md bg-foreground/50 rounded-lg p-3 text-light">
-          {['Sports', 'Music', 'Films', 'Technology', 'Cuisine'].map((cat) => (
+          {['sports', 'music', 'films', 'technology', 'cuisine'].map((cat) => (
             <label key={cat} className="flex gap-3 items-center">
               <input
                 type="checkbox"
                 className="w-3"
-                value={cat}
+                value={t(cat)}
                 onChange={toggleCategory}
-                checked={category.includes(cat)}
+                checked={category.includes(t(cat))}
               />
-              {cat}
+              {t(cat)}
             </label>
           ))}
         </div>
       </div>
       {/* Polls Display */}
       <div className="flex flex-col gap-4 overflow-x-auto p-4">
-        <h2 className="text-3xl font-bold text-primary mb-6 text-center md:text-left">Current Polls</h2>
+        <h2 className="text-3xl font-bold text-primary mb-6 text-center md:text-left">{t("current_polls")}</h2>
         <div className='flex overflow-x-auto md:flex-wrap gap-2 sm:gap-5 pb-4 flex-col sm:flex-row'>
           {filteredPolls.length === 0 ? (
-            <p className="text-center text-muted-foreground">No current polls available.</p>
+            <p className="text-center text-muted-foreground">{t("no_polls")}</p>
           ) : (
             filteredPolls.map((survey, index) => {
               const totalVotes = survey.poll.participants?.reduce((sum, part) => sum + (part.count || 0), 0) || 0;
@@ -117,12 +119,12 @@ const CurrentPoll = ({ cat }) => {
               return (
                 <div
                   ref={(el) => pollRefs.current[survey._id] = el}
-                  className={`flex flex-col bg-card rounded-lg p-4 mb-6 items-start border-1 border-border min-w-[300px] max-w-md shrink-0 ${isFocused ? 'border-2 border-primary scale-[1.02]' : ''}`}
+                  className={`flex flex-col bg-card rounded-lg p-4 mb-6 items-start border-1 border-border min-w-[300px] max-w-md shrink-0 ${isFocused ? 'border-1 border-primary' : ''}`}
                   key={index}
                 >
                   <div className='flex gap-2 items-center text-sm font-semibold'>
                     <div className='bg-foreground rounded-full py-1 px-2'>{survey.poll?.category}</div>
-                    <div className='bg-primary-foreground/20 text-primary-foreground rounded-full py-1 px-2'>Live</div>
+                    <div className='bg-primary-foreground/20 text-primary-foreground rounded-full py-1 px-2'>{t("live")}</div>
                   </div>
                   <div className="flex flex-col items-start my-3">
                     <h3 className="text-2xl font-bold text-primary">
@@ -137,7 +139,7 @@ const CurrentPoll = ({ cat }) => {
                         <div className='flex flex-col gap-1' key={i}>
                           <div className='flex gap-3 justify-between'>
                             <div>{part.name}</div>
-                            <div>{totalVotes > 0 ? `${percent}%` : 'No votes yet'}</div>
+                            <div>{totalVotes > 0 ? `${percent}%` : t("no_votes")}</div>
                           </div>
                           <div className='bg-foreground w-full rounded-full h-2 overflow-hidden'>
                             <div
@@ -153,12 +155,12 @@ const CurrentPoll = ({ cat }) => {
                   <div className="mt-6 flex flex-col gap-2 text-sm font-semibold text-primary/70 items-center w-full">
                     <div className='flex gap-2'><Users />{totalVotes}</div>
                     <div className='flex flex-col gap-2'>
-                      <div>By: {survey?.author}</div>
-                      <div>Due: {new Date(survey.poll?.dueDate).toLocaleDateString('en-GB')}</div>
+                      <div>{t("by")}: {survey?.author}</div>
+                      <div>{t("due")}: {new Date(survey.poll?.dueDate).toLocaleDateString('en-GB')}</div>
                     </div>
                     <Link to={`/poll/${survey._id}`}>
                       <button className="vote-button px-3 py-1 rounded-md cursor-pointer text-lg">
-                        Be you
+                        {t("beYou")}
                       </button>
                     </Link>
                   </div>

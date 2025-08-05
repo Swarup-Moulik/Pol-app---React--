@@ -2,13 +2,14 @@ import { Search } from 'lucide-react';
 import React, { useContext, useEffect, useState } from 'react';
 import { PollContext } from '../context/pollContext';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const SearchBar = () => {
   const { surveys, searchTerm, setSearchTerm } = useContext(PollContext);
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const navigate = useNavigate();
-
+  const { t } = useTranslation("navbar");
   useEffect(() => {
     if (searchTerm.trim()) {
       const filtered = surveys.filter((survey) =>
@@ -46,7 +47,7 @@ const SearchBar = () => {
         <Search size={20} strokeWidth={3} />
         <input
           type='text'
-          placeholder='Look for polls'
+          placeholder={t("look_for_polls")}
           className='outline-none bg-transparent w-full'
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}

@@ -1,0 +1,19 @@
+{
+  "loading": "Loading polls...",
+  "trendingTitle": "Trending Polls",
+  "trendingSubtitle": "Discover what's buzzing among everyone?",
+  "live": "Live",
+  "noVotes": "No votes yet",
+  "by": "By",
+  "due": "Due",
+  "beYou": "Be you",
+  "noPolls": "No Polls Running",
+  "categories": "Categories",
+  "category": {
+    "Cuisine": "Cuisine",
+    "Technology": "Technology",
+    "Sports": "Sports",
+    "Music": "Music",
+    "Films": "Films"
+  }
+}

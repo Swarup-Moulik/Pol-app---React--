@@ -5,6 +5,7 @@ import { useToast } from '@/hooks/use-toast';
 import placeholder from './placeholder.png';
 import axios from 'axios';
 import { TrendingUp, Users, Zap } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Poll = () => {
   const { pollID } = useParams();
@@ -12,6 +13,7 @@ const Poll = () => {
   const [pollData, setPollData] = useState({});
   const [voted, setVoted] = useState(false);
   const { toast } = useToast();
+  const { t } = useTranslation("poll");
   const [selectedIndex, setSelectedIndex] = useState(null);
   const fetchPollData = async (params) => {
     const matchedPoll = surveys.find(survey => survey._id === pollID);
@@ -31,7 +33,7 @@ const Poll = () => {
   const handleVote = async () => {
     if (selectedIndex === null) {
       toast({
-          title: "Select an option first",
+          title: t("select_option_first"),
           description: response.data.message,
           variant: "destructive"
         });
@@ -52,21 +54,21 @@ const Poll = () => {
       );
       if (response.data.success) {
         toast({
-          title: "Vote submitted successfully! 🎉",
-          description: "Your vote has been successfully casted.",
+          title: t("vote_success_title"),
+          description: t("vote_success_desc"),
         });
         setVoted(true);
       } else {
         toast({
-          title: "Vote Not Casted",
-          description: response.data.message,
+          title: t("vote_fail_title"),
+          description: response.data.message || t("vote_fail_desc"),
           variant: "destructive"
         });
       }
     } catch (err) {
       toast({
-        title: "Error",
-        description: error.message,
+        title: t("error"),
+        description: err.message,
         variant: "destructive"
       });
     }
@@ -83,11 +85,11 @@ const Poll = () => {
     <div className='grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-2 mb-5'>
       <div className='md:py-5 py-2 my-10 sm:ml-25 sm:px-15 px-6 m-5 rounded-xl bg-card border-2 border-border w-fit sm:w-6/7'>
         <div className='flex justify-between'>
-          <p className="font-bold my-3 px-3 py-1 bg-foreground rounded-2xl">{pollData?.poll?.category || 'Category'}</p>
+          <p className="font-bold my-3 px-3 py-1 bg-foreground rounded-2xl">{pollData?.poll?.category || t("category")}</p>
           <div className="text-md font-semibold my-2 flex gap-2 items-center text-primary/60">
             <Users size={20} />{pollData.poll.participants.reduce(
               (sum, part) => sum + (part.count || 0), 0
-            ).toLocaleString()} votes
+            ).toLocaleString()} {t("votes")}
           </div>
         </div>
         <div className='flex flex-col items-start mt-3 mb-15'>
@@ -119,7 +121,7 @@ const Poll = () => {
                 <div htmlFor={`option-${index}`} className="text-md flex justify-between w-full">
                   <div className='font-semibold'>{p.name}</div>
                   <div className='text-primary/80'>
-                    {totalVotes > 0 ? `${percent}%` : 'No votes yet'}
+                    {totalVotes > 0 ? `${percent}%` : t("no_votes_yet")}
                   </div>
                 </div>
                 <div className='bg-foreground w-full rounded-full h-2 overflow-hidden'>
@@ -137,14 +139,14 @@ const Poll = () => {
           disabled={voted}
           className={`my-5 px-3 py-2 rounded-md font-bold text-primary text-xl ${voted ? 'bg-gray-600 cursor-not-allowed' : 'bg-primary-foreground hover:bg-primary-foreground/10 cursor-pointer'}`}
         >
-          {voted ? 'Voted' : 'Vote'}
+          {voted ? t("voted") : t("vote")}
         </button>
       </div>
       <div className='flex items-center flex-col'>
         <div className='border-1 border-border flex flex-col w-sm gap-2 rounded-xl mt-10 sm:mr-15 mx-10 bg-card pb-2'>
           <div className='flex mx-7 mt-5 items-center gap-2'>
             <div><TrendingUp size={30} color='#50C878'/></div>
-            <h2 className='text-2xl font-bold'>Trending Poll</h2>
+            <h2 className='text-2xl font-bold'>{t("trending_poll")}</h2>
           </div>
           <div className='w-sm relative'>
             {popular.map((poll, index) => (
@@ -156,7 +158,7 @@ const Poll = () => {
                   <div className='flex justify-between items-center mt-2'>
                     <div className='bg-card rounded-2xl px-2 py-1 font-medium text-xs'>{poll?.poll.category}</div>
                     <div className='text-primary/60 text-xs'>
-                      {poll?.poll.participants.reduce((sum, part) => sum + (part.count || 0), 0).toLocaleString()} votes
+                      {poll?.poll.participants.reduce((sum, part) => sum + (part.count || 0), 0).toLocaleString()} {t("votes")}
                     </div>
                   </div>
                 </Link>
@@ -167,7 +169,7 @@ const Poll = () => {
         <div className='border-1 border-border flex flex-col w-sm gap-2 rounded-xl mt-10 sm:mr-15 mx-10 bg-card pb-2'>
           <div className='flex mx-7 my-5 items-center gap-2'>
             <div><Zap size={30} color='turquoise'/></div>
-            <h2 className='text-2xl font-bold'>Latest Poll</h2>
+            <h2 className='text-2xl font-bold'>{t("latest_poll")}</h2>
           </div>
           <div>
             {latest.map((poll, index) => (
@@ -179,7 +181,7 @@ const Poll = () => {
                   <div className='flex justify-between items-center mt-3'>
                     <div className='bg-card rounded-2xl px-2 py-1 font-medium text-xs'>{poll?.poll.category}</div>
                     <div className='text-primary/60 text-xs'>
-                      {poll?.poll.participants.reduce((sum, part) => sum + (part.count || 0), 0).toLocaleString()} votes
+                      {poll?.poll.participants.reduce((sum, part) => sum + (part.count || 0), 0).toLocaleString()} {t("votes")}
                     </div>
                   </div>
                 </Link>
@@ -190,7 +192,7 @@ const Poll = () => {
       </div>
     </div>
   ) : (
-    <div>Loading...</div>
+    <div>{t("loading")}</div>
   );
 }
 

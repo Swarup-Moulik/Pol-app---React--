@@ -1,0 +1,21 @@
+{
+  "welcomeBack": "ফিরে আসার জন্য ধন্যবাদ!",
+  "joinDebate": "আলোচনায় যোগ দিন",
+  "loginSubtext": "আপনার ভোট দিন বা একটি নতুন পোল তৈরি করুন — ঠিক যেখানে আপনি শেষ করেছিলেন।",
+  "signupSubtext": "আপনার মতামত দিন, একটি পোল শুরু করুন, অথবা ট্রেন্ডিং বিষয়ে ভোট দিন।",
+  "loginTitle": "লগইন",
+  "signupTitle": "নিবন্ধন করুন",
+  "loginDesc": "আলোচনায় যোগ দিতে লগইন করুন",
+  "signupDesc": "শুরু করতে মাত্র এক মিনিট সময় লাগে।",
+  "yourName": "আপনার নাম",
+  "yourEmail": "আপনার ইমেইল",
+  "yourPassword": "আপনার পাসওয়ার্ড",
+  "placeholderName": "জন ডো",
+  "placeholderEmail": "johndoe@gmail.com",
+  "placeholderPassword": "আপনার পাসওয়ার্ড",
+  "createAccount": "একাউন্ট তৈরি করুন",
+  "alreadyHaveAccount": "ইতোমধ্যে একটি একাউন্ট আছে?",
+  "loginNow": "লগইন করুন",
+  "loggingIn": "লগইন হচ্ছে...",
+  "signingUp": "নিবন্ধন হচ্ছে..."
+}
