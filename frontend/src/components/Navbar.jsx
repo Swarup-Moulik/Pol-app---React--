@@ -66,7 +66,7 @@ const Navbar = () => {
           </div>
           <div className="relative group text-sm">
             <button className="hover:text-primary text-primary-foreground text-lg capitalize font-bold">
-              {i18n.language === 'en' ? 'English' : i18n.language === 'bn' ? 'বাংলা' : i18n.language}
+              {i18n.language === 'en' ? 'English' : i18n.language === 'bn' ? 'বাংলা' : 'English'}
             </button>
             <div className="absolute top-full left-0 hidden group-hover:flex flex-col gap-1 font-semibold bg-foreground border border-border p-2 rounded-md shadow-lg z-50 min-w-[100px]">
               <button onClick={() => changeLanguage('en')} className="px-3 py-1 hover:bg-muted hover:text-primary rounded text-left">English</button>
