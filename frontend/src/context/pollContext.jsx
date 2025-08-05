@@ -12,6 +12,8 @@ const PollContextProvider = (props) => {
     const [surveys, setSurveys] = useState([]);
     const [loading, setLoading] = useState(true);
     const { toast } = useToast();
+    const [open, setOpen] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [author, setAuthor] = useState(localStorage.getItem('author') || '');
     const [refreshTrigger, setRefreshTrigger] = useState(0);
     const [searchTerm, setSearchTerm] = useState('');
@@ -43,7 +45,9 @@ const PollContextProvider = (props) => {
         getPolls();
     }, [refreshTrigger]);
     const value = {
-        navigate, backendURL, token, setToken, surveys, author, setAuthor, getPolls, searchTerm, setSearchTerm, loading, refreshTrigger, setRefreshTrigger
+        navigate, backendURL, token, setToken, surveys, author, setAuthor, getPolls, 
+        searchTerm, setSearchTerm, loading, refreshTrigger, setRefreshTrigger, open, 
+        setOpen, mobileMenuOpen, setMobileMenuOpen
     }
     return (
         <PollContext.Provider value={value}>

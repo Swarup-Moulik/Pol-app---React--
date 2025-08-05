@@ -9,9 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
   const { t } = useTranslation('navbar');
-  const { navigate } = useContext(PollContext);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [open, setOpen] = useState(false);
+  const { navigate, open, setOpen, mobileMenuOpen, setMobileMenuOpen } = useContext(PollContext);
   const toggleDropdown = () => setOpen(prev => !prev);
   const { i18n } = useTranslation();
   const logOut = () => {

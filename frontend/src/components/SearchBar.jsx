@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const SearchBar = () => {
-  const { surveys, searchTerm, setSearchTerm } = useContext(PollContext);
+  const { surveys, searchTerm, setSearchTerm, setMobileMenuOpen } = useContext(PollContext);
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const navigate = useNavigate();
@@ -39,6 +39,7 @@ const SearchBar = () => {
     setSearchTerm('');
     setSuggestions([]);
     setShowSuggestions(false);
+    setMobileMenuOpen(false)
   };
 
   return (
