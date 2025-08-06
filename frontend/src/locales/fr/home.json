@@ -1,0 +1,19 @@
+{
+  "loading": "Chargement des sondages...",
+  "trendingTitle": "Sondages tendances",
+  "trendingSubtitle": "Découvrez ce qui fait le buzz ?",
+  "live": "En direct",
+  "noVotes": "Pas encore de votes",
+  "by": "Par",
+  "due": "Échéance",
+  "beYou": "Soyez vous-même",
+  "noPolls": "Aucun sondage en cours",
+  "categories": "Catégories",
+  "category": {
+    "Cuisine": "Cuisine",
+    "Technology": "Technologie",
+    "Sports": "Sports",
+    "Music": "Musique",
+    "Films": "Films"
+  }
+}

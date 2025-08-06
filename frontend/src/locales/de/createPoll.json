@@ -1,0 +1,20 @@
+{
+  "create_title": "Erstelle deine Umfrage",
+  "subtitle": "Sammle Meinungen und treffe gemeinsam Entscheidungen",
+  "poll_details": "Umfragedetails",
+  "title": "Titel",
+  "desc": "Anekdote",
+  "category": "Kategorien",
+  "due_date": "Fälligkeitsdatum",
+  "participants": "Anzahl der Teilnehmer :-",
+  "name": "Name",
+  "picture": "Bild",
+  "sports": "Sport",
+  "technology": "Technologie",
+  "music": "Musik",
+  "film": "Film",
+  "cuisine": "Küche",
+  "others": "Andere",
+  "launch": "Starten",
+  "launching": "Umfrage wird gestartet..."
+}

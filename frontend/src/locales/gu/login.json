@@ -1,0 +1,21 @@
+{
+  "welcomeBack": "ફરીથી તમારું સ્વાગત છે!",
+  "joinDebate": "ચર્ચામાં જોડાઓ",
+  "loginSubtext": "તમારો મત આપો અથવા નવી પોલ બનાવો — જ્યાં તમે છોડ્યું હતું ત્યાંથી જ આગળ વધો.",
+  "signupSubtext": "તમારો અવાજ શેર કરો, એક પોલ શરૂ કરો, અથવા ટ્રેન્ડિંગ વિષયો પર મત આપો.",
+  "loginTitle": "લોગ-ઇન",
+  "signupTitle": "સાઇન અપ કરો",
+  "loginDesc": "વાતચીતમાં જોડાવા માટે લોગ ઇન કરો",
+  "signupDesc": "શરૂઆત કરવા માટે માત્ર એક મિનિટ લાગે છે.",
+  "yourName": "તમારું નામ",
+  "yourEmail": "તમારું ઇમેઇલ",
+  "yourPassword": "તમારો પાસવર્ડ",
+  "placeholderName": "જ્હોન ડો",
+  "placeholderEmail": "johndoe@gmail.com",
+  "placeholderPassword": "તમારો પાસવર્ડ",
+  "createAccount": "એકાઉન્ટ બનાવો",
+  "alreadyHaveAccount": "પહેલેથી જ એકાઉન્ટ છે?",
+  "loginNow": "હમણાં લોગ ઇન કરો",
+  "loggingIn": "લોગ ઇન થઈ રહ્યું છે...",
+  "signingUp": "સાઇન અપ થઈ રહ્યું છે..."
+}

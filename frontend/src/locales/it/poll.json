@@ -1,0 +1,17 @@
+{
+  "category": "Categoria",
+  "votes": "voti",
+  "no_votes_yet": "Ancora nessun voto",
+  "select_option_first": "Seleziona prima un'opzione",
+  "vote_success_title": "Voto inviato con successo! 🎉",
+  "vote_success_desc": "Il tuo voto è stato espresso con successo.",
+  "vote_fail_title": "Voto non espresso",
+  "vote_fail_desc": "Si è verificato un errore durante l'espressione del voto.",
+  "error": "Errore",
+  "voted": "Votato",
+  "vote": "Vota",
+  "trending_poll": "Sondaggio di tendenza",
+  "latest_poll": "Ultimo sondaggio",
+  "loading": "Caricamento...",
+  "past_polls": "Sondaggi passati"
+}

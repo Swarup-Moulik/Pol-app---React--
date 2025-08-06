@@ -1,0 +1,21 @@
+{
+  "publisher": "Éditeur",
+  "my_polls": "Mes sondages",
+  "all_polls": "Tous les sondages",
+  "active_polls": "Sondages actifs",
+  "past_polls": "Sondages passés",
+  "no_polls": "Aucun sondage actuel disponible.",
+  "category": "Catégorie",
+  "expired": "Expiré",
+  "live": "En direct",
+  "no_votes": "Pas encore de votes",
+  "by": "Par",
+  "due": "Échéance",
+  "result": "Résultat",
+  "vote": "Soyez vous-même",
+  "poll_deleted": "Sondage supprimé 🎉",
+  "poll_deleted_desc": "Votre sondage a été supprimé avec succès.",
+  "deletion_failed": "Échec de la suppression",
+  "error": "Erreur",
+  "login_required": "Veuillez vous connecter pour voir votre profil"
+}

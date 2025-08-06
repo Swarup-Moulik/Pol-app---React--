@@ -1,0 +1,20 @@
+{
+  "create_title": "Crea tu encuesta",
+  "subtitle": "Reúne opiniones y tomen decisiones juntos",
+  "poll_details": "Detalles de la encuesta",
+  "title": "Título",
+  "desc": "Anécdota",
+  "category": "Categorías",
+  "due_date": "Fecha de vencimiento",
+  "participants": "Número de participantes :-",
+  "name": "Nombre",
+  "picture": "Imagen",
+  "sports": "Deportes",
+  "technology": "Tecnología",
+  "music": "Música",
+  "film": "Película",
+  "cuisine": "Cocina",
+  "others": "Otros",
+  "launch": "Lanzar",
+  "launching": "Lanzando encuesta..."
+}

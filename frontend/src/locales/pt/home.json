@@ -1,0 +1,19 @@
+{
+  "loading": "Carregando enquetes...",
+  "trendingTitle": "Enquetes em alta",
+  "trendingSubtitle": "Descubra o que está em alta entre todos?",
+  "live": "Ao vivo",
+  "noVotes": "Ainda sem votos",
+  "by": "Por",
+  "due": "Vence em",
+  "beYou": "Seja você",
+  "noPolls": "Nenhuma enquete em andamento",
+  "categories": "Categorias",
+  "category": {
+    "Cuisine": "Culinária",
+    "Technology": "Tecnologia",
+    "Sports": "Esportes",
+    "Music": "Música",
+    "Films": "Filmes"
+  }
+}

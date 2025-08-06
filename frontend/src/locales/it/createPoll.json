@@ -1,0 +1,20 @@
+{
+  "create_title": "Crea il tuo sondaggio",
+  "subtitle": "Raccogli opinioni e prendi decisioni insieme",
+  "poll_details": "Dettagli del sondaggio",
+  "title": "Titolo",
+  "desc": "Aneddoto",
+  "category": "Categorie",
+  "due_date": "Data di scadenza",
+  "participants": "Numero di partecipanti :-",
+  "name": "Nome",
+  "picture": "Immagine",
+  "sports": "Sport",
+  "technology": "Tecnologia",
+  "music": "Musica",
+  "film": "Film",
+  "cuisine": "Cucina",
+  "others": "Altro",
+  "launch": "Lancia",
+  "launching": "Lancio del sondaggio in corso..."
+}

@@ -1,0 +1,21 @@
+{
+  "publisher": "Veröffentlicher",
+  "my_polls": "Meine Umfragen",
+  "all_polls": "Alle Umfragen",
+  "active_polls": "Aktive Umfragen",
+  "past_polls": "Vergangene Umfragen",
+  "no_polls": "Keine aktuellen Umfragen verfügbar.",
+  "category": "Kategorie",
+  "expired": "Abgelaufen",
+  "live": "Live",
+  "no_votes": "Noch keine Stimmen",
+  "by": "Von",
+  "due": "Fällig",
+  "result": "Ergebnis",
+  "vote": "Sei du selbst",
+  "poll_deleted": "Umfrage gelöscht 🎉",
+  "poll_deleted_desc": "Deine Umfrage wurde erfolgreich entfernt.",
+  "deletion_failed": "Löschen fehlgeschlagen",
+  "error": "Fehler",
+  "login_required": "Bitte melde dich an, um dein Profil anzuzeigen"
+}

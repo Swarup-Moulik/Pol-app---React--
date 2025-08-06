@@ -1,0 +1,21 @@
+{
+  "welcomeBack": "Bon retour !",
+  "joinDebate": "Rejoignez le débat",
+  "loginSubtext": "Votez ou créez un nouveau sondage — là où vous vous êtes arrêté.",
+  "signupSubtext": "Partagez votre voix, lancez un sondage ou votez sur des sujets tendances.",
+  "loginTitle": "Se connecter",
+  "signupTitle": "S'inscrire",
+  "loginDesc": "Connectez-vous pour rejoindre la conversation",
+  "signupDesc": "Cela ne prend qu'une minute pour commencer.",
+  "yourName": "Votre nom",
+  "yourEmail": "Votre e-mail",
+  "yourPassword": "Votre mot de passe",
+  "placeholderName": "Jean Dupont",
+  "placeholderEmail": "jeandupont@gmail.com",
+  "placeholderPassword": "Votre mot de passe",
+  "createAccount": "Créer un compte",
+  "alreadyHaveAccount": "Vous avez déjà un compte ?",
+  "loginNow": "Se connecter maintenant",
+  "loggingIn": "Connexion en cours...",
+  "signingUp": "Inscription en cours..."
+}

@@ -1,0 +1,21 @@
+{
+  "publisher": "Editor",
+  "my_polls": "Mis encuestas",
+  "all_polls": "Todas las encuestas",
+  "active_polls": "Encuestas activas",
+  "past_polls": "Encuestas pasadas",
+  "no_polls": "No hay encuestas actuales disponibles.",
+  "category": "Categoría",
+  "expired": "Vencida",
+  "live": "En vivo",
+  "no_votes": "Aún no hay votos",
+  "by": "Por",
+  "due": "Vence",
+  "result": "Resultado",
+  "vote": "Sé tú",
+  "poll_deleted": "Encuesta eliminada 🎉",
+  "poll_deleted_desc": "Tu encuesta ha sido eliminada con éxito.",
+  "deletion_failed": "Eliminación fallida",
+  "error": "Error",
+  "login_required": "Por favor, inicia sesión para ver tu perfil"
+}

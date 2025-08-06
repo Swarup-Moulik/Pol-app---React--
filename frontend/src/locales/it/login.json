@@ -1,0 +1,21 @@
+{
+  "welcomeBack": "Bentornato!",
+  "joinDebate": "Partecipa al dibattito",
+  "loginSubtext": "Esprimi il tuo voto o crea un nuovo sondaggio, esattamente da dove avevi lasciato.",
+  "signupSubtext": "Fai sentire la tua voce, avvia un sondaggio o vota su argomenti di tendenza.",
+  "loginTitle": "Accedi",
+  "signupTitle": "Iscriviti",
+  "loginDesc": "Accedi per unirti alla conversazione",
+  "signupDesc": "Ci vuole solo un minuto per iniziare.",
+  "yourName": "Il tuo nome",
+  "yourEmail": "La tua email",
+  "yourPassword": "La tua password",
+  "placeholderName": "Mario Rossi",
+  "placeholderEmail": "mariorossi@gmail.com",
+  "placeholderPassword": "La tua password",
+  "createAccount": "Crea account",
+  "alreadyHaveAccount": "Hai già un account?",
+  "loginNow": "Accedi ora",
+  "loggingIn": "Accesso in corso...",
+  "signingUp": "Iscrizione in corso..."
+}

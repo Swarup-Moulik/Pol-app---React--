@@ -1,0 +1,17 @@
+{
+  "category": "Kategorie",
+  "votes": "Stimmen",
+  "no_votes_yet": "Noch keine Stimmen",
+  "select_option_first": "Wähle zuerst eine Option aus",
+  "vote_success_title": "Stimme erfolgreich abgegeben! 🎉",
+  "vote_success_desc": "Deine Stimme wurde erfolgreich abgegeben.",
+  "vote_fail_title": "Stimme nicht abgegeben",
+  "vote_fail_desc": "Beim Abgeben deiner Stimme ist ein Fehler aufgetreten.",
+  "error": "Fehler",
+  "voted": "Abgestimmt",
+  "vote": "Abstimmen",
+  "trending_poll": "Trend-Umfrage",
+  "latest_poll": "Neueste Umfrage",
+  "loading": "Wird geladen...",
+  "past_polls": "Vergangene Umfragen"
+}

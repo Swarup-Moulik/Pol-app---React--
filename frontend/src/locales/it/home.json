@@ -1,0 +1,19 @@
+{
+  "loading": "Caricamento sondaggi in corso...",
+  "trendingTitle": "Sondaggi di tendenza",
+  "trendingSubtitle": "Scopri cosa fa parlare tutti?",
+  "live": "In diretta",
+  "noVotes": "Ancora nessun voto",
+  "by": "Di",
+  "due": "Scadenza",
+  "beYou": "Sii te stesso",
+  "noPolls": "Nessun sondaggio in corso",
+  "categories": "Categorie",
+  "category": {
+    "Cuisine": "Cucina",
+    "Technology": "Tecnologia",
+    "Sports": "Sport",
+    "Music": "Musica",
+    "Films": "Film"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "publisher": "Editor",
+  "my_polls": "Minhas enquetes",
+  "all_polls": "Todas as enquetes",
+  "active_polls": "Enquetes ativas",
+  "past_polls": "Enquetes passadas",
+  "no_polls": "Nenhuma enquete atual disponível.",
+  "category": "Categoria",
+  "expired": "Expirado",
+  "live": "Ao vivo",
+  "no_votes": "Ainda sem votos",
+  "by": "Por",
+  "due": "Vence em",
+  "result": "Resultado",
+  "vote": "Seja você",
+  "poll_deleted": "Enquete excluída 🎉",
+  "poll_deleted_desc": "Sua enquete foi removida com sucesso.",
+  "deletion_failed": "Falha ao excluir",
+  "error": "Erro",
+  "login_required": "Por favor, faça login para ver seu perfil"
+}

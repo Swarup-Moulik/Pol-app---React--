@@ -1,0 +1,21 @@
+{
+  "publisher": "Pubblicato da",
+  "my_polls": "I miei sondaggi",
+  "all_polls": "Tutti i sondaggi",
+  "active_polls": "Sondaggi attivi",
+  "past_polls": "Sondaggi passati",
+  "no_polls": "Nessun sondaggio attuale disponibile.",
+  "category": "Categoria",
+  "expired": "Scaduto",
+  "live": "In diretta",
+  "no_votes": "Ancora nessun voto",
+  "by": "Di",
+  "due": "Scadenza",
+  "result": "Risultato",
+  "vote": "Sii te stesso",
+  "poll_deleted": "Sondaggio eliminato 🎉",
+  "poll_deleted_desc": "Il tuo sondaggio è stato rimosso con successo.",
+  "deletion_failed": "Eliminazione fallita",
+  "error": "Errore",
+  "login_required": "Per favore, accedi per visualizzare il tuo profilo"
+}

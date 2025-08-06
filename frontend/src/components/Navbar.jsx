@@ -55,7 +55,7 @@ const Navbar = () => {
         </div>
         {/* Right side */}
         <div className="hidden md:flex w-full justify-end pr-5 items-center gap-6 text-primary">
-          <SearchBar/>
+          <SearchBar />
           <NavLink to="/profile">
             <User />
           </NavLink>
@@ -64,11 +64,48 @@ const Navbar = () => {
           </div>
           <div className="relative group text-sm">
             <button className="hover:text-primary text-primary-foreground text-lg capitalize font-bold">
-              {i18n.language === 'en' ? 'English' : i18n.language === 'bn' ? 'বাংলা' : 'English'}
+              {{
+                en: 'English',
+                bn: 'বাংলা',
+                mr: 'मराठी',
+                gu: 'ગુજરાતી',
+                ta: 'தமிழ்',
+                te: 'తెలుగు',
+                ml: 'മലയാളം',
+                kn: 'ಕನ್ನಡ',
+                pt: 'Português',
+                es: 'Español',
+                fr: 'Français',
+                de: 'Deutsch',
+                it: 'Italiano',
+                ru: 'Русский',
+              }[i18n.language] || 'English'}
             </button>
-            <div className="absolute top-full left-0 hidden group-hover:flex flex-col gap-1 font-semibold bg-foreground border border-border p-2 rounded-md shadow-lg z-50 min-w-[100px]">
-              <button onClick={() => changeLanguage('en')} className="px-3 py-1 hover:bg-muted hover:text-primary rounded text-left">English</button>
-              <button onClick={() => changeLanguage('bn')} className="px-3 py-1 hover:bg-muted hover:text-primary rounded text-left">বাংলা</button>
+            <div className="absolute top-full left-0 hidden group-hover:flex flex-col gap-1 font-semibold bg-foreground border border-border p-2 rounded-md shadow-lg z-50 min-w-[100px] max-h-[300px] overflow-y-auto">
+              {[
+                { code: 'en', label: 'English' },
+                { code: 'bn', label: 'বাংলা' },
+                { code: 'mr', label: 'मराठी' },
+                { code: 'gu', label: 'ગુજરાતી' },
+                { code: 'ta', label: 'தமிழ்' },
+                { code: 'te', label: 'తెలుగు' },
+                { code: 'ml', label: 'മലയാളം' },
+                { code: 'kn', label: 'ಕನ್ನಡ' },
+                { code: 'pt', label: 'Português' },
+                { code: 'es', label: 'Español' },
+                { code: 'fr', label: 'Français' },
+                { code: 'de', label: 'Deutsch' },
+                { code: 'it', label: 'Italiano' },
+                { code: 'ru', label: 'Русский' },
+              ].map(({ code, label }) => (
+                <button
+                  key={code}
+                  onClick={() => changeLanguage(code)}
+                  className="px-3 py-1 hover:bg-muted hover:text-primary rounded text-left"
+                >
+                  {label}
+                </button>
+              ))}
             </div>
           </div>
           <Theme />
@@ -81,22 +118,49 @@ const Navbar = () => {
           </NavLink>
           <div className="relative text-sm">
             <button onClick={toggleDropdown} className="hover:text-primary text-primary-foreground text-lg capitalize font-bold">
-              {i18n.language === 'en' ? 'English' : i18n.language === 'bn' ? 'বাংলা' : i18n.language}
+              {{
+                en: 'English',
+                bn: 'বাংলা',
+                mr: 'मराठी',
+                gu: 'ગુજરાતી',
+                ta: 'தமிழ்',
+                te: 'తెలుగు',
+                ml: 'മലയാളം',
+                kn: 'ಕನ್ನಡ',
+                pt: 'Português',
+                es: 'Español',
+                fr: 'Français',
+                de: 'Deutsch',
+                it: 'Italiano',
+                ru: 'Русский'
+              }[i18n.language] || 'English'}
             </button>
             {open && (
-              <div className="absolute top-full left-0 flex flex-col gap-1 font-semibold bg-foreground border border-border p-2 rounded-md shadow-lg z-50 min-w-[100px]">
-                <button
-                  onClick={() => changeLanguage('en')}
-                  className="px-3 py-1 hover:bg-muted hover:text-primary rounded text-left"
-                >
-                  English
-                </button>
-                <button
-                  onClick={() => changeLanguage('bn')}
-                  className="px-3 py-1 hover:bg-muted hover:text-primary rounded text-left"
-                >
-                  বাংলা
-                </button>
+              <div className="absolute top-full left-0 flex flex-col gap-1 font-semibold bg-foreground border border-border p-2 rounded-md shadow-lg z-50 min-w-[100px] max-h-[300px] overflow-y-auto">
+                {[
+                  { code: 'en', label: 'English' },
+                  { code: 'bn', label: 'বাংলা' },
+                  { code: 'mr', label: 'मराठी' },
+                  { code: 'gu', label: 'ગુજરાતી' },
+                  { code: 'ta', label: 'தமிழ்' },
+                  { code: 'te', label: 'తెలుగు' },
+                  { code: 'ml', label: 'മലയാളം' },
+                  { code: 'kn', label: 'ಕನ್ನಡ' },
+                  { code: 'pt', label: 'Português' },
+                  { code: 'es', label: 'Español' },
+                  { code: 'fr', label: 'Français' },
+                  { code: 'de', label: 'Deutsch' },
+                  { code: 'it', label: 'Italiano' },
+                  { code: 'ru', label: 'Русский' },
+                ].map(({ code, label }) => (
+                  <button
+                    key={code}
+                    onClick={() => changeLanguage(code)}
+                    className="px-3 py-1 hover:bg-muted hover:text-primary rounded text-left"
+                  >
+                    {label}
+                  </button>
+                ))}
               </div>
             )}
           </div>

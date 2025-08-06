@@ -1,0 +1,21 @@
+{
+  "welcomeBack": "С возвращением!",
+  "joinDebate": "Присоединиться к обсуждению",
+  "loginSubtext": "Голосуйте или создавайте новые опросы — прямо с того места, где вы остановились.",
+  "signupSubtext": "Выражайте свое мнение, начинайте опросы или голосуйте по актуальным темам.",
+  "loginTitle": "Вход",
+  "signupTitle": "Регистрация",
+  "loginDesc": "Войдите, чтобы присоединиться к беседе",
+  "signupDesc": "Начать можно всего за минуту.",
+  "yourName": "Ваше имя",
+  "yourEmail": "Ваш адрес электронной почты",
+  "yourPassword": "Ваш пароль",
+  "placeholderName": "Джон Доу",
+  "placeholderEmail": "johndoe@gmail.com",
+  "placeholderPassword": "Ваш пароль",
+  "createAccount": "Создать аккаунт",
+  "alreadyHaveAccount": "Уже есть аккаунт?",
+  "loginNow": "Войти сейчас",
+  "loggingIn": "Выполняется вход...",
+  "signingUp": "Выполняется регистрация..."
+}

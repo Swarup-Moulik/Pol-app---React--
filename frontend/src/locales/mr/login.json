@@ -1,0 +1,21 @@
+{
+  "welcomeBack": "परत स्वागत आहे!",
+  "joinDebate": "चर्चेत सामील व्हा",
+  "loginSubtext": "तुमचं मत द्या किंवा नवीन मतदान तयार करा — जिथे तुम्ही सोडलं होतं तिथूनच पुढे.",
+  "signupSubtext": "तुमचं मत मांडा, मतदान सुरू करा किंवा ट्रेंडिंग विषयांवर मतदान करा.",
+  "loginTitle": "लॉग-इन",
+  "signupTitle": "साइन अप करा",
+  "loginDesc": "संभाषणात सामील होण्यासाठी लॉग इन करा",
+  "signupDesc": "सुरुवात करण्यासाठी फक्त एक मिनिट लागतो.",
+  "yourName": "तुमचं नाव",
+  "yourEmail": "तुमचा ईमेल",
+  "yourPassword": "तुमचा पासवर्ड",
+  "placeholderName": "जॉन डो",
+  "placeholderEmail": "johndoe@gmail.com",
+  "placeholderPassword": "तुमचा पासवर्ड",
+  "createAccount": "खाते तयार करा",
+  "alreadyHaveAccount": "आधीच खाते आहे?",
+  "loginNow": "आता लॉग इन करा",
+  "loggingIn": "लॉग इन होत आहे...",
+  "signingUp": "साइन अप होत आहे..."
+}

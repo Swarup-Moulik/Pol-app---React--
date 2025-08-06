@@ -1,0 +1,20 @@
+{
+  "create_title": "Créez votre sondage",
+  "subtitle": "Recueillez des avis et prenez des décisions ensemble",
+  "poll_details": "Détails du sondage",
+  "title": "Titre",
+  "desc": "Anecdote",
+  "category": "Catégories",
+  "due_date": "Date d'échéance",
+  "participants": "Nombre de participants :-",
+  "name": "Nom",
+  "picture": "Photo",
+  "sports": "Sports",
+  "technology": "Technologie",
+  "music": "Musique",
+  "film": "Films",
+  "cuisine": "Cuisine",
+  "others": "Autres",
+  "launch": "Lancer",
+  "launching": "Lancement du sondage..."
+}

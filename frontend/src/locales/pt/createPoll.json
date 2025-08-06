@@ -1,0 +1,20 @@
+{
+  "create_title": "Crie sua enquete",
+  "subtitle": "Colete opiniões e tomem decisões juntos",
+  "poll_details": "Detalhes da enquete",
+  "title": "Título",
+  "desc": "Anedota",
+  "category": "Categorias",
+  "due_date": "Data de vencimento",
+  "participants": "Número de participantes :-",
+  "name": "Nome",
+  "picture": "Imagem",
+  "sports": "Esportes",
+  "technology": "Tecnologia",
+  "music": "Música",
+  "film": "Filme",
+  "cuisine": "Culinária",
+  "others": "Outros",
+  "launch": "Lançar",
+  "launching": "Lançando enquete..."
+}

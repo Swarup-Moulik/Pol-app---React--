@@ -1,0 +1,19 @@
+{
+  "loading": "Cargando encuestas...",
+  "trendingTitle": "Encuestas populares",
+  "trendingSubtitle": "¿Descubre qué está en boca de todos?",
+  "live": "En vivo",
+  "noVotes": "Aún no hay votos",
+  "by": "Por",
+  "due": "Vence",
+  "beYou": "Sé tú",
+  "noPolls": "No hay encuestas en curso",
+  "categories": "Categorías",
+  "category": {
+    "Cuisine": "Cocina",
+    "Technology": "Tecnología",
+    "Sports": "Deportes",
+    "Music": "Música",
+    "Films": "Películas"
+  }
+}

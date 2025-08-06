@@ -1,0 +1,19 @@
+{
+  "loading": "Umfragen werden geladen...",
+  "trendingTitle": "Trend-Umfragen",
+  "trendingSubtitle": "Entdecke, was alle bewegt?",
+  "live": "Live",
+  "noVotes": "Noch keine Stimmen",
+  "by": "Von",
+  "due": "Fällig",
+  "beYou": "Sei du selbst",
+  "noPolls": "Keine Umfragen aktiv",
+  "categories": "Kategorien",
+  "category": {
+    "Cuisine": "Küche",
+    "Technology": "Technologie",
+    "Sports": "Sport",
+    "Music": "Musik",
+    "Films": "Filme"
+  }
+}

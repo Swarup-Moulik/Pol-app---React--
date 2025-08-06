@@ -1,0 +1,21 @@
+{
+  "welcomeBack": "¡Bienvenido de nuevo!",
+  "joinDebate": "Únete al debate",
+  "loginSubtext": "Emite tu voto o crea una nueva encuesta, justo donde lo dejaste.",
+  "signupSubtext": "Comparte tu voz, inicia una encuesta o vota sobre temas de tendencia.",
+  "loginTitle": "Iniciar sesión",
+  "signupTitle": "Registrarse",
+  "loginDesc": "Inicia sesión para unirte a la conversación",
+  "signupDesc": "Solo se tarda un minuto en empezar.",
+  "yourName": "Tu nombre",
+  "yourEmail": "Tu correo electrónico",
+  "yourPassword": "Tu contraseña",
+  "placeholderName": "Juan Pérez",
+  "placeholderEmail": "juanperez@gmail.com",
+  "placeholderPassword": "Tu contraseña",
+  "createAccount": "Crear cuenta",
+  "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+  "loginNow": "Iniciar sesión ahora",
+  "loggingIn": "Iniciando sesión...",
+  "signingUp": "Registrándose..."
+}
